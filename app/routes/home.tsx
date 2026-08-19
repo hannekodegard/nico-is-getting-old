@@ -538,7 +538,7 @@ const choices = [
     ],
     accent: "teal",
     image:
-      "https://images.unsplash.com/photo-1586508577428-120d6b072945?auto=format&fit=crop&fm=jpg&q=78&w=1600",
+      "/Fujairah.png",
     imageAlt:
       "Scuba divers exploring a coral reef in blue water.",
     banner:
@@ -558,11 +558,11 @@ const choices = [
     ],
     accent: "rose",
     image:
-      "https://images.unsplash.com/photo-1784285550785-885d49cd7579?auto=format&fit=crop&fm=jpg&q=78&w=1600",
-    imageAlt:
+"/Staycation.png",    
+imageAlt:
       "Dubai skyline glowing at night above a pool.",
     banner:
-      "/Staycation.png",
+      "/Staycation-big.png",
   },
   {
     id: "abu-dhabi-riverdance",
@@ -579,11 +579,11 @@ const choices = [
     ],
     accent: "gold",
     image:
-      "https://images.unsplash.com/photo-1761229661497-30a087499566?auto=format&fit=crop&fm=jpg&q=78&w=1600",
+"/Riverdance.png",
     imageAlt:
       "Dancers performing under blue stage lighting.",
     banner:
-      "/Riverdance.png",
+      "/Riverdance-big.png",
   },
 ] as const;
 
