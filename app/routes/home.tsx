@@ -542,7 +542,7 @@ const choices = [
     imageAlt:
       "Scuba divers exploring a coral reef in blue water.",
     banner:
-      "/Fujairah.png",
+      "/Fujairah-big.png",
   },
   {
     id: "dubai-staycation",
