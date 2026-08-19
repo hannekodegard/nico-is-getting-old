@@ -529,17 +529,20 @@ const choices = [
     eyebrow: "Operation deep blue",
     code: "01 / Coast",
     description:
-      "A proper sea-air escape with diving, a relaxed overnight stay, and enough post-dive food to make the surface interval count.",
+      "A proper sea-air escape with diving, a relaxed stay, and enough post-dive food to make the surface interval count.",
     includes: [
-      "Two-day weekend plan",
-      "Diving focus",
-      "Slow coastal evenings",
+      "Weekend get away at a nice resort",
+      "Padi Discover Scuba diving experience",
+      "Sooo many turtles",
+      "Scenic drive with you own personal lady chaffeur"
     ],
     accent: "teal",
     image:
       "https://images.unsplash.com/photo-1586508577428-120d6b072945?auto=format&fit=crop&fm=jpg&q=78&w=1600",
     imageAlt:
       "Scuba divers exploring a coral reef in blue water.",
+    banner:
+      "/Fujairah.png",
   },
   {
     id: "dubai-staycation",
@@ -547,17 +550,19 @@ const choices = [
     eyebrow: "Operation soft landing",
     code: "02 / City",
     description:
-      "A dressed-up Dubai reset with a lovely hotel, dinner, pool time, and the rare luxury of doing absolutely nothing on purpose.",
+      "A dressed-up Dubai reset with a lovely hotel, dinner, pool time, and the rare luxury of doing absolutely nothing on purpose. (Or are we?)",
     includes: [
-      "Hotel night",
-      "Romantic dinner",
-      "Lazy morning together",
+      "Weekend away from home",
+      "Romance you don't have to plan for once",
+      "Lazy mornings together (Promise I won't drag you out of bed for anything other than breakfast)",
     ],
     accent: "rose",
     image:
       "https://images.unsplash.com/photo-1784285550785-885d49cd7579?auto=format&fit=crop&fm=jpg&q=78&w=1600",
     imageAlt:
       "Dubai skyline glowing at night above a pool.",
+    banner:
+      "/Staycation.png",
   },
   {
     id: "abu-dhabi-riverdance",
@@ -567,15 +572,18 @@ const choices = [
     description:
       "A playful Abu Dhabi weekend built around Riverdance, good seats, a nice meal, and a tiny bit of cultural razzle dazzle.",
     includes: [
-      "Riverdance plans",
-      "Weekend in Abu Dhabi",
-      "Dinner and wandering",
+      "Riverdance ofc",
+      "A nice weekend in Abu Dhabi",
+      "Learning the secrets of Abu Dhabi seen through a former resident",
+      "Must be redeemed on the weekend of the 31st of October/1st of November"
     ],
     accent: "gold",
     image:
       "https://images.unsplash.com/photo-1761229661497-30a087499566?auto=format&fit=crop&fm=jpg&q=78&w=1600",
     imageAlt:
       "Dancers performing under blue stage lighting.",
+    banner:
+      "/Riverdance.png",
   },
 ] as const;
 
@@ -585,6 +593,7 @@ type StoredChoice = {
   id: ChoiceId;
   title: string;
   selectedAt: string;
+  banner: string;
 };
 
 export function meta({}: Route.MetaArgs) {
@@ -715,7 +724,10 @@ export default function Home() {
       id: choice.id,
       title: choice.title,
       selectedAt: new Date().toISOString(),
+      banner: choice.banner
     };
+
+    console.log(choice.banner)
 
     window.localStorage.setItem(
       CHOICE_KEY,
@@ -732,6 +744,8 @@ export default function Home() {
 
   const activeCase =
     openCase !== null ? CASES[openCase] : null;
+
+    console.log(storedChoice?.banner)
 
   return (
     <main className="voucher-shell">
@@ -878,6 +892,8 @@ export default function Home() {
                   <h2>
                     {storedChoice.title}
                   </h2>
+
+                  <img src={storedChoice.banner}/>
 
                   <p>
                     Excellent decision. Your
